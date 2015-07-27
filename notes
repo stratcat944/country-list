@@ -1,0 +1,42 @@
+Databases let us save outr data
+We could save our data with fs, e.g. fs.writeFile, but readFile and writeFile are super slow so avoid using these methods.
+Databases allow us to read and write small pieces of data very efficiently and precisely. This is good for small pieces of data that change often, such as Javascript objects and arrays.
+Databases are not so good for larger pieces of data such as songs, images and videos (media).
+
+Two different kinds of databases, SQL and NoSQL.
+
+Traditionally most databases have been SQL databases.
+
+- Data stored in a flat tabular (table based) system like spreadsheet.
+- Very structured (opinionated). You must declare a type for each column. The structure you define is called the
+SCHEMA.
+- SQL - Structured Query Language
+	select * from users where name = Steve or 1 = 1; // SQL injection vulnerability
+- SQL databases scale vertically, most commonly.
+- SQL databases can scale horizontally, but it's more challenging.
+
+
+NoSQL: Not SQL.
+- few styles (most common key-value store, document-oriented database. Also, graph-based
+databases)
+- Schema is not enforced by the database. Your application should still enforce a schema, but it can be flexible and
+allow for dynamic data.
+- NoSQL databases are designed to scale horizontally very easily. 
+- Typically faster than SQL databses. Supposedly less reliable.
+- Always used with an API. THis way you don't have to learn another language and you get some automatic security. The one
+exception is the Mongoose 'where' clause.
+
+MongoDB - HuMONGOus database
+- written in C++, so it's very fast.
+- uses a flat file database, 
+- data is stored in JSON-like sets. More specifically, Mongo uses BSON - Binary JSON.
+
+Command-line Mongo
+One database per application generally speaking.
+'use people' - uses the people database
+Collections model the same kind of things that a CLASS would, e.g. people...
+
+db.kids.find() shows nothing because there are no kids yet.
+db.kids.find({name: 'Alice'}) // only find kids with the name Alice
+
+
